@@ -2,7 +2,7 @@
 swagger: "2.0"
 info:
   description: ""
-  version: "0.1.3"
+  version: "0.1.4"
   title: "Event Cadence Webhook API"
 host: "webhookconnect.eventcadence.com"
 basePath: "/"
@@ -16,7 +16,7 @@ paths:
       tags:
       - "registerAttendee"
       summary: "Register an Attendee"
-      description: "Use this to register attendees to your event."
+      description: "Use this to register attendees to your event. For adding attendees to groups you can either provide them in an array of strings via groupNames (which will add the attendee to any existing matching groups and create new groups for any that don't match) or provide specific group IDs as an array of integers via groupIds (this allows for matching to existing groups in your Cadence event if the names don't match between the two systems)."
       operationId: "registerAttendee"
       produces:
       - "application/json"
@@ -25,7 +25,7 @@ paths:
         in: "path"
         description: "The webhook eventCode provided to you by your contact at Cadence."
         required: true
-        type: "string"
+        type: string
       - in: "body"
         name: "body"
         description: "JSON body of fields used to register the attendee."
@@ -38,71 +38,66 @@ paths:
           schema:
             $ref: "#/definitions/ApiResponse"
         "400":
-          description: "Required field missing"
+          description: "required field missing"
         "404":
-          description: "eventCode not found."
-      security:
-      - api_key: []
-securityDefinitions:
-  api_key:
-    type: "apiKey"
-    name: "api_key"
-    in: "header"
+          description: "eventCode not found"
 definitions:
   registerAttendee:
-    type: "object"
+    type: object
     properties:
+      key:
+        type: string
       profile: 
-        type: "object"
+        type: object
         properties:
           prefix: 
-            type: "string"
+            type: string
           firstName:
-            type: "string"
+            type: string
           lastName:
-            type: "string"
+            type: string
           email:
-            type: "string"
+            type: string
           phone:
-            type: "string"
+            type: string
           website:
-            type: "string"
+            type: string
           facebook:
-            type: "string"
+            type: string
           twitter:
-            type: "string"
+            type: string
           linkedin:
-            type: "string"
+            type: string
           instagram:
-            type: "string"
+            type: string
           thirdPartyId:
-            type: "string"
+            type: string
           title:
-            type: "string"
+            type: string
           manager:
-            type: "string"
+            type: string
           jobRole:
-            type: "string"
+            type: string
           department:
-            type: "string"
+            type: string
           company:
-            type: "string"
+            type: string
           city:
-            type: "string"
+            type: string
           state:
-            type: "string"
+            type: string
           country:
-            type: "string"
+            type: string
           assistantName:
-            type: "string"
+            type: string
           assistantPhone:
-            type: "string"
+            type: string
           assistantEmail:
-            type: "string"
+            type: string
           motto:
-            type: "string"
+            type: string
           biography:
-            type: "string"
+            type: string
           customFields:
             type: array
             items:
@@ -113,9 +108,9 @@ definitions:
               - fieldName: Alumni year
                 fieldValue: "1998"
           password:
-            type: "string"
+            type: string
       eventInfo:
-        type: "object"
+        type: object
         properties: 
           groups:
             type: object
@@ -123,7 +118,7 @@ definitions:
               groupNames:
                 type: array
                 items: 
-                  type: "string"
+                  type: string
                 example:
                   - Group A
                   - Group B
@@ -137,15 +132,13 @@ definitions:
                   - 123
                   - 456
                   - 789
-    xml:
-      name: "registerAttendee"
   customFields:
     type: "object"
     properties:
       fieldName:
-        type: "string"
+        type: string
       fieldValue: 
-        type: "string"
+        type: string
   ApiResponse:
     type: "object"
     properties:
@@ -153,6 +146,6 @@ definitions:
         type: "integer"
         format: "int32"
       type:
-        type: "string"
+        type: string
       message:
-        type: "string"
+        type: string
