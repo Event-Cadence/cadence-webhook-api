@@ -2,7 +2,7 @@
 swagger: "2.0"
 info:
   description: ""
-  version: "0.1.1"
+  version: "0.1.2"
   title: "Event Cadence Webhook API"
 host: "webhookconnect.eventcadence.com"
 basePath: "/"
@@ -59,7 +59,6 @@ definitions:
         properties:
           prefix: 
             type: "string"
-            example: "
           firstName:
             type: "string"
           lastName:
@@ -110,6 +109,11 @@ definitions:
             type: array
             items:
               $ref: "#/definitions/customFields"
+            example: 
+              - fieldName: Favorite color
+                fieldValue: Blue
+              - fieldName: Alumni year
+                fieldValue: "1998"
           password:
             type: "string"
       eventInfo:
@@ -122,11 +126,19 @@ definitions:
                 type: array
                 items: 
                   type: "string"
+                example:
+                  - Group A
+                  - Group B
+                  - Group C
               groupIds:
                 type: array
                 items: 
                   type: "integer"
                 format: "int64"
+                example:
+                  - 123
+                  - 456
+                  - 789
     xml:
       name: "registerAttendee"
   customFields:
