@@ -2,7 +2,7 @@
 swagger: "2.0"
 info:
   description: ""
-  version: "0.1.2"
+  version: "0.1.3"
   title: "Event Cadence Webhook API"
 host: "webhookconnect.eventcadence.com"
 basePath: "/"
@@ -51,8 +51,6 @@ securityDefinitions:
 definitions:
   registerAttendee:
     type: "object"
-    required:
-      - email
     properties:
       profile: 
         type: "object"
