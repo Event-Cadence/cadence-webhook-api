@@ -2,7 +2,7 @@
 swagger: "2.0"
 info:
   description: ""
-  version: "0.1.4"
+  version: "0.1.2"
   title: "Event Cadence Webhook API"
 host: "webhookconnect.eventcadence.com"
 basePath: "/"
