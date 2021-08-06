@@ -1,11 +1,9 @@
 ---
 swagger: "2.0"
 info:
-  description: "Use this to register attendees to your event."
-  version: "0.1.0"
-  title: "Event Cadence Webhook"
-  contact:
-    email: "ian@eventcadence.com"
+  description: ""
+  version: "0.1.1"
+  title: "Event Cadence Webhook API"
 host: "webhookconnect.eventcadence.com"
 basePath: "/"
 tags:
@@ -18,14 +16,14 @@ paths:
       tags:
       - "registerAttendee"
       summary: "Register an Attendee"
-      description: ""
+      description: "Use this to register attendees to your event."
       operationId: "registerAttendee"
       produces:
       - "application/json"
       parameters:
       - name: "eventCode"
         in: "path"
-        description: "The eventcode provided to you."
+        description: "The webhook eventCode provided to you by your contact at Cadence."
         required: true
         type: "string"
       - in: "body"
@@ -41,6 +39,8 @@ paths:
             $ref: "#/definitions/ApiResponse"
         "400":
           description: "Required field missing"
+        "404":
+          description: "eventCode not found."
       security:
       - api_key: []
 securityDefinitions:
@@ -59,6 +59,7 @@ definitions:
         properties:
           prefix: 
             type: "string"
+            example: "
           firstName:
             type: "string"
           lastName:
