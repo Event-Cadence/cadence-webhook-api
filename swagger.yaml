@@ -2,7 +2,7 @@
 swagger: "2.0"
 info:
   description: ""
-  version: "0.1.5"
+  version: "0.1.6"
   title: "Event Cadence Webhook API"
 host: "webhookconnect.eventcadence.com"
 basePath: "/"
@@ -16,7 +16,8 @@ paths:
       tags:
       - "registerAttendee"
       summary: "Register an Attendee"
-      description: "Use this to register attendees to your event. For adding attendees to groups you can either provide them in an array of strings via groupNames (which will add the attendee to any existing matching groups and create new groups for any that don't match) or provide specific group IDs as an array of integers via groupIds (this allows for matching to existing groups in your Cadence event if the names don't match between the two systems)."
+#      description: "Use this to register attendees to your event. For adding attendees to groups you can either provide them in an array of strings via groupNames (which will add the attendee to any existing matching groups and create new groups for any that don't match) or provide specific group IDs as an array of integers via groupIds (this allows for matching to existing groups in your Cadence event if the names don't match between the two systems)."
+      description: "Use this to register attendees to your event. For adding attendees to groups you can  provide them in an array of strings via groupNames (which will add the attendee to any existing matching groups and create new groups for any that don't match)."
       operationId: "registerAttendee"
       produces:
       - "application/json"
@@ -107,8 +108,6 @@ definitions:
                 fieldValue: Blue
               - fieldName: Alumni year
                 fieldValue: "1998"
-          password:
-            type: string
       eventInfo:
         type: object
         properties: 
@@ -123,15 +122,15 @@ definitions:
                   - Group A
                   - Group B
                   - Group C
-              groupIds:
-                type: array
-                items: 
-                  type: "integer"
-                format: "int64"
-                example:
-                  - 123
-                  - 456
-                  - 789
+#              groupIds:
+#                type: array
+#                items: 
+#                  type: "integer"
+#                format: "int64"
+#                example:
+#                  - 123
+#                  - 456
+#                  - 789
   customFields:
     type: "object"
     properties:
