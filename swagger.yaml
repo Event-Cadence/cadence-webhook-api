@@ -2,16 +2,16 @@
 swagger: "2.0"
 info:
   description: ""
-  version: "0.1.6"
+  version: "0.1.7"
   title: "Event Cadence Webhook API"
 host: "webhookconnect.eventcadence.com"
-basePath: "/"
+basePath: "/connect/"
 tags:
 - name: "registerAttendee"
 schemes:
 - "https"
 paths:
-  /{eventCode}/registerAttendee:
+  /{eventCode}/registerattendee:
     post:
       tags:
       - "registerAttendee"
@@ -75,10 +75,10 @@ definitions:
             type: string
           title:
             type: string
-          manager:
-            type: string
-          jobRole:
-            type: string
+#          manager:
+#            type: string
+#          jobRole:
+#            type: string
           department:
             type: string
           company:
