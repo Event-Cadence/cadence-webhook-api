@@ -2,8 +2,8 @@
 swagger: "2.0"
 info:
   description: ""
-  version: "0.1.8"
-  title: "Event Cadence Webhook API (DRAFT)"
+  version: "1.0.0"
+  title: "Event Cadence Webhook API"
 host: "webhookconnect.eventcadence.com"
 basePath: "/connect/"
 tags:
