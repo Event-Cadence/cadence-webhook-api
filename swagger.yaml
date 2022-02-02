@@ -1,7 +1,7 @@
 swagger: "2.0"
 info:
   description: ""
-  version: "1.0.0"
+  version: "1.0.1"
   title: "Event Cadence Webhook API"
 host: "webhookconnect.eventcadence.com"
 basePath: "/connect/"
@@ -48,6 +48,12 @@ definitions:
     properties:
       key:
         type: string
+      SendWelcomeEmail: 
+        type: boolean
+        default: false
+      SendRegistrationConfirmationEmail:
+        type: boolean
+        default: false
       profile: 
         type: object
         properties:
