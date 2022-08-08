@@ -2,7 +2,7 @@ openapi: 3.0.1
 info:
   title: Event Cadence Webhook API
   description: ""
-  version: 1.0.3
+  version: 1.0.4
 servers:
 - url: https://webhookconnect.eventcadence.com/connect
   description: Production
@@ -30,7 +30,7 @@ paths:
       requestBody:
         description: JSON body of fields used to register the attendee.
         content:
-          '*/*':
+          application/json:
             schema:
               $ref: '#/components/schemas/registerattendee'
         required: true
